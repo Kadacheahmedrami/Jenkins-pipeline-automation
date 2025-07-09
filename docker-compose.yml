@@ -1,12 +1,14 @@
+version: "3.8"
+
 services:
   db:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: bu1_portal_db          # Batna University 1 Portal Database
-      MYSQL_USER: bu1_admin                  # Batna University DB Admin
-      MYSQL_PASSWORD: bu1_secure_pass        # DB User Password
-      MYSQL_ROOT_PASSWORD: bu1_root_secret   # MySQL Root Password
+      MYSQL_DATABASE: bu1_portal_db
+      MYSQL_USER: bu1_admin
+      MYSQL_PASSWORD: bu1_secure_pass
+      MYSQL_ROOT_PASSWORD: bu1_root_secret
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -51,7 +53,7 @@ services:
       - webnet
 
 volumes:
-  db_data:  
+  db_data:
 
 networks:
   webnet:
