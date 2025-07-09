@@ -1,0 +1,58 @@
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: bu1_portal_db          # Batna University 1 Portal Database
+      MYSQL_USER: bu1_admin                  # Batna University DB Admin
+      MYSQL_PASSWORD: bu1_secure_pass        # DB User Password
+      MYSQL_ROOT_PASSWORD: bu1_root_secret   # MySQL Root Password
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - webnet
+
+  wordpress:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: bu1_admin
+      WORDPRESS_DB_PASSWORD: bu1_secure_pass
+      WORDPRESS_DB_NAME: bu1_portal_db
+    networks:
+      - webnet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: bu1_root_secret
+    ports:
+      - "127.0.0.1:8081:80"
+    networks:
+      - webnet
+
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - wordpress
+      - phpmyadmin
+    networks:
+      - webnet
+
+volumes:
+  db_data:  
+
+networks:
+  webnet:
+    driver: bridge

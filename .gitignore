@@ -1,0 +1,25 @@
+# Ignore Docker volumes
+db_data/
+
+# Ignore Jenkins data
+jenkins/
+
+# Ignore Docker Compose override files (optional)
+docker-compose.override.yml
+
+# Ignore logs (if you generate any)
+*.log
+logs/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore WordPress uploads (if very large or handled differently)
+wordpress-site/wp-content/uploads/
+
+# Ignore vendor folders (if using Composer)
+vendor/
+
+# Ignore node_modules (if any JS tools involved)
+node_modules/
