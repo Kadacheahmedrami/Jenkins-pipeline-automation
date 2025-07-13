@@ -118,13 +118,11 @@ themes.view.Appearance = wp.Backbone.View.extend({
 		// Render and append after screen title.
 		view.render();
 		this.searchContainer
-			.find( '.search-box' )
-			.append( $.parseHTML( '<label for="wp-filter-search-input">' + l10n.search + '</label>' ) )
-			.append( view.el );
-
-		this.searchContainer.on( 'submit', function( event ) {
-			event.preventDefault();
-		});
+			.append( $.parseHTML( '<label class="screen-reader-text" for="wp-filter-search-input">' + l10n.search + '</label>' ) )
+			.append( view.el )
+			.on( 'submit', function( event ) {
+				event.preventDefault();
+			});
 	},
 
 	// Checks when the user gets close to the bottom
@@ -928,7 +926,7 @@ themes.view.Preview = themes.view.Details.extend({
 
 		currentPreviewDevice = this.$el.data( 'current-preview-device' );
 		if ( currentPreviewDevice ) {
-			self.togglePreviewDeviceButtons( currentPreviewDevice );
+			self.tooglePreviewDeviceButtons( currentPreviewDevice );
 		}
 
 		themes.router.navigate( themes.router.baseUrl( themes.router.themePath + this.model.get( 'id' ) ), { replace: false } );
@@ -990,10 +988,10 @@ themes.view.Preview = themes.view.Details.extend({
 			.addClass( 'preview-' + device )
 			.data( 'current-preview-device', device );
 
-		this.togglePreviewDeviceButtons( device );
+		this.tooglePreviewDeviceButtons( device );
 	},
 
-	togglePreviewDeviceButtons: function( newDevice ) {
+	tooglePreviewDeviceButtons: function( newDevice ) {
 		var $devices = $( '.wp-full-overlay-footer .devices' );
 
 		$devices.find( 'button' )
@@ -1302,7 +1300,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 		// Find the next model within the collection.
 		nextModel = self.collection.at( self.collection.indexOf( model ) + 1 );
 
-		// Confidence check which also serves as a boundary test.
+		// Sanity check which also serves as a boundary test.
 		if ( nextModel !== undefined ) {
 
 			// We have a new theme...
@@ -1361,6 +1359,7 @@ themes.view.Search = wp.Backbone.View.extend({
 	searching: false,
 
 	attributes: {
+		placeholder: l10n.searchPlaceholder,
 		type: 'search',
 		'aria-describedby': 'live-search-desc'
 	},
@@ -1665,7 +1664,7 @@ themes.view.Installer = themes.view.Appearance.extend({
 		this.listenTo( this.collection, 'query:fail', function() {
 			$( 'body' ).removeClass( 'loading-content' );
 			$( '.theme-browser' ).find( 'div.error' ).remove();
-			$( '.theme-browser' ).find( 'div.themes' ).before( '<div class="notice notice-error"><p>' + l10n.error + '</p><p><button class="button try-again">' + l10n.tryAgain + '</button></p></div>' );
+			$( '.theme-browser' ).find( 'div.themes' ).before( '<div class="error"><p>' + l10n.error + '</p><p><button class="button try-again">' + l10n.tryAgain + '</button></p></div>' );
 			$( '.theme-browser .error .try-again' ).on( 'click', function( e ) {
 				e.preventDefault();
 				$( 'input.wp-filter-search' ).trigger( 'input' );
@@ -1695,13 +1694,7 @@ themes.view.Installer = themes.view.Appearance.extend({
 	browse: function( section ) {
 		// Create a new collection with the proper theme data
 		// for each section.
-		if ( 'block-themes' === section ) {
-			// Get the themes by sending Ajax POST request to api.wordpress.org/themes
-			// or searching the local cache.
-			this.collection.query( { tag: 'full-site-editing' } );
-		} else {
-			this.collection.query( { browse: section } );
-		}
+		this.collection.query( { browse: section } );
 	},
 
 	// Sorting navigation.
@@ -2119,3 +2112,5 @@ jQuery( function($) {
 
 	$(window).on( 'resize', function(){ tb_position(); });
 });
+
+# auto-update
