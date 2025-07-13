@@ -129,3 +129,5 @@ const isValidEvent = event => event.button === 0 &&
   lock: true
 });
 
+
+# auto-update
