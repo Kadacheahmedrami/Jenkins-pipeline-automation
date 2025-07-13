@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "core/post-title",
-	"title": "Title",
+	"title": "Post Title",
 	"category": "theme",
 	"description": "Displays the title of a post, page, or any other content-type.",
 	"textdomain": "default",
@@ -15,28 +15,19 @@
 			"type": "number",
 			"default": 2
 		},
-		"levelOptions": {
-			"type": "array"
-		},
 		"isLink": {
 			"type": "boolean",
-			"default": false,
-			"role": "content"
+			"default": false
 		},
 		"rel": {
 			"type": "string",
 			"attribute": "rel",
-			"default": "",
-			"role": "content"
+			"default": ""
 		},
 		"linkTarget": {
 			"type": "string",
-			"default": "_self",
-			"role": "content"
+			"default": "_self"
 		}
-	},
-	"example": {
-		"viewportWidth": 350
 	},
 	"supports": {
 		"align": [ "wide", "full" ],
@@ -51,8 +42,7 @@
 			}
 		},
 		"spacing": {
-			"margin": true,
-			"padding": true
+			"margin": true
 		},
 		"typography": {
 			"fontSize": true,
@@ -61,27 +51,15 @@
 			"__experimentalFontWeight": true,
 			"__experimentalFontStyle": true,
 			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
 			"__experimentalLetterSpacing": true,
 			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
-		},
-		"interactivity": {
-			"clientNavigation": true
-		},
-		"__experimentalBorder": {
-			"radius": true,
-			"color": true,
-			"width": true,
-			"style": true,
-			"__experimentalDefaultControls": {
-				"radius": true,
-				"color": true,
-				"width": true,
-				"style": true
+				"fontSize": true,
+				"fontAppearance": true,
+				"textTransform": true
 			}
 		}
 	},
 	"style": "wp-block-post-title"
 }
+
+# auto-update
