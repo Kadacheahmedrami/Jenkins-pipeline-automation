@@ -374,3 +374,4 @@
 		document.addEventListener( 'DOMContentLoaded', init );
 	}
 })();
+# auto-update
