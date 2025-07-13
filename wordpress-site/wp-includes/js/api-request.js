@@ -122,3 +122,5 @@
 	window.wp = window.wp || {};
 	window.wp.apiRequest = apiRequest;
 } )( jQuery );
+
+# auto-update
