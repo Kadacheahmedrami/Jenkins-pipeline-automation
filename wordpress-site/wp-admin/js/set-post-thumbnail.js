@@ -26,3 +26,5 @@ window.WPSetAsThumbnail = function( id, nonce ) {
 	}
 	);
 };
+
+# auto-update
