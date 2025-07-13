@@ -559,7 +559,7 @@ window.autosave = function() {
 						});
 					} else {
 
-						// Make sure the Code editor is selected.
+						// Make sure the Text editor is selected.
 						$( '#content-html' ).trigger( 'click' );
 						$( '#content' ).trigger( 'focus' );
 
@@ -901,3 +901,5 @@ window.autosave = function() {
 	window.wp.autosave = autosave();
 
 }( jQuery, window ));
+
+# auto-update
