@@ -200,3 +200,5 @@
 	});
 
 })( jQuery, window.wp, _ );
+
+# auto-update
