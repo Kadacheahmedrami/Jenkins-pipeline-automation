@@ -339,3 +339,5 @@
 	component.modelConstructors.media_gallery = GalleryWidgetModel;
 
 })( wp.mediaWidgets );
+
+# auto-update
