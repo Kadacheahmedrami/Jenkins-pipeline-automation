@@ -62,3 +62,5 @@
 	"editorStyle": "wp-block-comments-editor",
 	"usesContext": [ "postId", "postType" ]
 }
+
+# auto-update
