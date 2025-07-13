@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "core/video",
 	"title": "Video",
 	"category": "media",
@@ -15,10 +15,9 @@
 			"attribute": "autoplay"
 		},
 		"caption": {
-			"type": "rich-text",
-			"source": "rich-text",
-			"selector": "figcaption",
-			"role": "content"
+			"type": "string",
+			"source": "html",
+			"selector": "figcaption"
 		},
 		"controls": {
 			"type": "boolean",
@@ -28,8 +27,7 @@
 			"default": true
 		},
 		"id": {
-			"type": "number",
-			"role": "content"
+			"type": "number"
 		},
 		"loop": {
 			"type": "boolean",
@@ -56,16 +54,11 @@
 			"attribute": "preload",
 			"default": "metadata"
 		},
-		"blob": {
-			"type": "string",
-			"role": "local"
-		},
 		"src": {
 			"type": "string",
 			"source": "attribute",
 			"selector": "video",
-			"attribute": "src",
-			"role": "content"
+			"attribute": "src"
 		},
 		"playsInline": {
 			"type": "boolean",
@@ -74,7 +67,6 @@
 			"attribute": "playsinline"
 		},
 		"tracks": {
-			"role": "content",
 			"type": "array",
 			"items": {
 				"type": "object"
@@ -84,19 +76,10 @@
 	},
 	"supports": {
 		"anchor": true,
-		"align": true,
-		"spacing": {
-			"margin": true,
-			"padding": true,
-			"__experimentalDefaultControls": {
-				"margin": false,
-				"padding": false
-			}
-		},
-		"interactivity": {
-			"clientNavigation": true
-		}
+		"align": true
 	},
 	"editorStyle": "wp-block-video-editor",
 	"style": "wp-block-video"
 }
+
+# auto-update
