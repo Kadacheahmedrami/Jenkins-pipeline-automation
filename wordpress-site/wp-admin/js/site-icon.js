@@ -109,7 +109,7 @@
 			frame.close();
 
 			// Start over with a frame that is so fresh and so clean clean.
-			frame = null;
+			frame = null;  # updated
 		} );
 
 		// When an image is selected, run a callback.
