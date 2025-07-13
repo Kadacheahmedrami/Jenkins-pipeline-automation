@@ -168,3 +168,5 @@
 	component.modelConstructors.media_image = ImageWidgetModel;
 
 })( wp.mediaWidgets, jQuery );
+
+# auto-update
