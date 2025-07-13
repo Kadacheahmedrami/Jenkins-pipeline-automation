@@ -444,3 +444,5 @@ wp.customize.navMenusPreview = wp.customize.MenusCustomizerPreview = ( function(
 	return self;
 
 }( jQuery, _, wp, wp.customize ) );
+
+# auto-update
