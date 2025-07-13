@@ -240,3 +240,5 @@
 			.trigger( 'focus' );
 	} );
 } )( jQuery );
+
+# auto-update
