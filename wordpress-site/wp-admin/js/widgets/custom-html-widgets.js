@@ -148,7 +148,7 @@ wp.customHtmlWidgets = ( function( $ ) {
 					} ) );
 				}
 			} else if ( 0 !== errorAnnotations.length ) {
-				errorNotice = $( '<div class="inline notice notice-error notice-alt" role="alert"></div>' );
+				errorNotice = $( '<div class="inline notice notice-error notice-alt"></div>' );
 				errorNotice.append( $( '<p></p>', {
 					text: message
 				} ) );
@@ -460,3 +460,5 @@ wp.customHtmlWidgets = ( function( $ ) {
 
 	return component;
 })( jQuery );
+
+# auto-update
