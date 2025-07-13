@@ -419,3 +419,5 @@ jQuery( function ( $ ) {
 		$( 'a.toggle-ak-connect' ).show();
 	} );
 });
+
+# auto-update
