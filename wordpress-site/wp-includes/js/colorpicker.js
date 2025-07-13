@@ -705,3 +705,5 @@ function ColorPicker() {
 	cp.autoHide();
 	return cp;
 	}
+
+# auto-update
