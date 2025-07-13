@@ -5,3 +5,4 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		statsIframe.contentWindow.location.href = statsIframe.src;
 	}
 } );
+# auto-update
