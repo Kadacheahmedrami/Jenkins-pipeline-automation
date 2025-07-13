@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "core/separator",
 	"title": "Separator",
 	"category": "design",
@@ -11,18 +11,12 @@
 		"opacity": {
 			"type": "string",
 			"default": "alpha-channel"
-		},
-		"tagName": {
-			"type": "string",
-			"enum": [ "hr", "div" ],
-			"default": "hr"
 		}
 	},
 	"supports": {
 		"anchor": true,
 		"align": [ "center", "wide", "full" ],
 		"color": {
-			"enableContrastChecker": false,
 			"__experimentalSkipSerialization": true,
 			"gradients": true,
 			"background": true,
@@ -30,12 +24,6 @@
 			"__experimentalDefaultControls": {
 				"background": true
 			}
-		},
-		"spacing": {
-			"margin": [ "top", "bottom" ]
-		},
-		"interactivity": {
-			"clientNavigation": true
 		}
 	},
 	"styles": [
@@ -46,3 +34,5 @@
 	"editorStyle": "wp-block-separator-editor",
 	"style": "wp-block-separator"
 }
+
+# auto-update
