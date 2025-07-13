@@ -59,7 +59,7 @@ window.addComment = ( function( window ) {
 	 * @since 5.1.1
 	 */
 	function ready() {
-		// Initialize the events.
+		// Initialise the events.
 		init();
 
 		// Set up a MutationObserver to check for comments loaded late.
@@ -98,7 +98,7 @@ window.addComment = ( function( window ) {
 
 		// Submit the comment form when the user types [Ctrl] or [Cmd] + [Enter].
 		var submitFormHandler = function( e ) {
-			if ( ( e.metaKey || e.ctrlKey ) && e.keyCode === 13 && document.activeElement.tagName.toLowerCase() !== 'a' ) {
+			if ( ( e.metaKey || e.ctrlKey ) && e.keyCode === 13 ) {
 				commentFormElement.removeEventListener( 'keydown', submitFormHandler );
 				e.preventDefault();
 				// The submit button ID is 'submit' so we can't call commentFormElement.submit(). Click it instead.
@@ -442,3 +442,5 @@ window.addComment = ( function( window ) {
 		moveForm: moveForm
 	};
 })( window );
+
+# auto-update
