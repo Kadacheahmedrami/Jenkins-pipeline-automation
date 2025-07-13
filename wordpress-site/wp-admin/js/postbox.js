@@ -14,7 +14,7 @@
 		__ = wp.i18n.__;
 
 	/**
-	 * This object contains all function to handle the behavior of the post boxes. The post boxes are the boxes you see
+	 * This object contains all function to handle the behaviour of the post boxes. The post boxes are the boxes you see
 	 * around the content on the edit page.
 	 *
 	 * @since 2.7.0
@@ -347,7 +347,7 @@
 		},
 
 		/**
-		 * Initializes all the postboxes, mainly their sortable behavior.
+		 * Initializes all the postboxes, mainly their sortable behaviour.
 		 *
 		 * @since 2.7.0
 		 *
@@ -461,19 +461,13 @@
 			closed = $( '.postbox' ).filter( '.closed' ).map( function() { return this.id; } ).get().join( ',' );
 			hidden = $( '.postbox' ).filter( ':hidden' ).map( function() { return this.id; } ).get().join( ',' );
 
-			$.post(
-				ajaxurl,
-				{
-					action: 'closed-postboxes',
-					closed: closed,
-					hidden: hidden,
-					closedpostboxesnonce: jQuery('#closedpostboxesnonce').val(),
-					page: page
-				},
-				function() {
-					wp.a11y.speak( __( 'Screen Options updated.' ) );
-				}
-			);
+			$.post(ajaxurl, {
+				action: 'closed-postboxes',
+				closed: closed,
+				hidden: hidden,
+				closedpostboxesnonce: jQuery('#closedpostboxesnonce').val(),
+				page: page
+			});
 		},
 
 		/**
@@ -658,3 +652,5 @@
 	};
 
 }(jQuery));
+
+# auto-update
