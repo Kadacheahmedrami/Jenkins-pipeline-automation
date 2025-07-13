@@ -158,7 +158,7 @@ wp.mediaWidgets = ( function( $ ) {
 							}
 						} else {
 							if ( ! noticeContainer.length ) {
-								noticeContainer = $( '<div class="media-widget-embed-notice notice notice-error notice-alt" role="alert"></div>' );
+								noticeContainer = $( '<div class="media-widget-embed-notice notice notice-error notice-alt"></div>' );
 								noticeContainer.hide();
 								embedLinkView.views.parent.$el.prepend( noticeContainer );
 							}
@@ -1334,3 +1334,5 @@ wp.mediaWidgets = ( function( $ ) {
 
 	return component;
 })( jQuery );
+
+# auto-update
