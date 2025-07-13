@@ -686,3 +686,4 @@ lock(privateApis, {
 (window.wp = window.wp || {}).coreCommands = __webpack_exports__;
 /******/ })()
 ;
+# auto-update
