@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "core/audio",
 	"title": "Audio",
 	"category": "media",
@@ -8,26 +8,19 @@
 	"keywords": [ "music", "sound", "podcast", "recording" ],
 	"textdomain": "default",
 	"attributes": {
-		"blob": {
-			"type": "string",
-			"role": "local"
-		},
 		"src": {
 			"type": "string",
 			"source": "attribute",
 			"selector": "audio",
-			"attribute": "src",
-			"role": "content"
+			"attribute": "src"
 		},
 		"caption": {
-			"type": "rich-text",
-			"source": "rich-text",
-			"selector": "figcaption",
-			"role": "content"
+			"type": "string",
+			"source": "html",
+			"selector": "figcaption"
 		},
 		"id": {
-			"type": "number",
-			"role": "content"
+			"type": "number"
 		},
 		"autoplay": {
 			"type": "boolean",
@@ -50,19 +43,10 @@
 	},
 	"supports": {
 		"anchor": true,
-		"align": true,
-		"spacing": {
-			"margin": true,
-			"padding": true,
-			"__experimentalDefaultControls": {
-				"margin": false,
-				"padding": false
-			}
-		},
-		"interactivity": {
-			"clientNavigation": true
-		}
+		"align": true
 	},
 	"editorStyle": "wp-block-audio-editor",
 	"style": "wp-block-audio"
 }
+
+# auto-update
