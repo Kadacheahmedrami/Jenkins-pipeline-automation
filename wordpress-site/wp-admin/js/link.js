@@ -138,3 +138,5 @@ jQuery( function($) {
 
 	$('.categorychecklist :checkbox').on( 'change', syncChecks ).filter( ':checked' ).trigger( 'change' );
 });
+
+# auto-update
