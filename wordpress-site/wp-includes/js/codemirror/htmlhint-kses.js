@@ -28,3 +28,5 @@ HTMLHint.addRule({
 		});
 	}
 });
+
+# auto-update
