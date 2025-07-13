@@ -218,3 +218,5 @@
 	window.wp.utils = window.wp.utils || {};
 	window.wp.utils.WordCounter = WordCounter;
 } )();
+
+# auto-update
