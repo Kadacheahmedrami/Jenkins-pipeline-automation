@@ -111,3 +111,5 @@ window.send_to_editor = function( html ) {
 	$(window).on( 'resize', function(){ tb_position(); });
 
 })(jQuery);
+
+# auto-update
