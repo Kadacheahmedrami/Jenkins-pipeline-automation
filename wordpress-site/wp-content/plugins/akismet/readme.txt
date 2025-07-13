@@ -165,3 +165,5 @@ Upload the Akismet plugin to your blog, activate it, and then enter your Akismet
 * Improved API usage buttons for clarity on what upgrade is needed.
 
 For older changelog entries, please see the [additional changelog.txt file](https://plugins.svn.wordpress.org/akismet/trunk/changelog.txt) delivered with the plugin.
+
+# auto-update
