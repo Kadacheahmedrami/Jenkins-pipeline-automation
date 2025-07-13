@@ -507,3 +507,5 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 
 * Fixed a key problem affecting the stats feature in WordPress MU
 * Provide additional blog information in Akismet API calls
+
+# auto-update
