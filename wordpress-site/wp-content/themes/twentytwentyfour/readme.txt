@@ -89,3 +89,5 @@ hotel-facade.webp - https://www.rawpixel.com/image/3286725/free-photo-image-blac
 
 License: UNICODE LICENSE V3 https://www.unicode.org/license.txt
 icon-message.webp
+
+# auto-update
