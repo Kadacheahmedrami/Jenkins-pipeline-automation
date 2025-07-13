@@ -292,3 +292,5 @@ window.inlineEditTax = {
 $( function() { inlineEditTax.init(); } );
 
 })( jQuery, window.wp );
+
+# auto-update
