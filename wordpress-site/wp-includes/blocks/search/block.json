@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"name": "core/search",
 	"title": "Search",
 	"category": "widgets",
@@ -10,7 +10,7 @@
 	"attributes": {
 		"label": {
 			"type": "string",
-			"role": "content"
+			"__experimentalRole": "content"
 		},
 		"showLabel": {
 			"type": "boolean",
@@ -19,7 +19,7 @@
 		"placeholder": {
 			"type": "string",
 			"default": "",
-			"role": "content"
+			"__experimentalRole": "content"
 		},
 		"width": {
 			"type": "number"
@@ -29,21 +29,13 @@
 		},
 		"buttonText": {
 			"type": "string",
-			"role": "content"
+			"__experimentalRole": "content"
 		},
 		"buttonPosition": {
 			"type": "string",
 			"default": "button-outside"
 		},
 		"buttonUseIcon": {
-			"type": "boolean",
-			"default": false
-		},
-		"query": {
-			"type": "object",
-			"default": {}
-		},
-		"isSearchFieldHidden": {
 			"type": "boolean",
 			"default": false
 		}
@@ -58,22 +50,6 @@
 				"text": true
 			}
 		},
-		"interactivity": true,
-		"typography": {
-			"__experimentalSkipSerialization": true,
-			"__experimentalSelector": ".wp-block-search__label, .wp-block-search__input, .wp-block-search__button",
-			"fontSize": true,
-			"lineHeight": true,
-			"__experimentalFontFamily": true,
-			"__experimentalFontWeight": true,
-			"__experimentalFontStyle": true,
-			"__experimentalTextTransform": true,
-			"__experimentalTextDecoration": true,
-			"__experimentalLetterSpacing": true,
-			"__experimentalDefaultControls": {
-				"fontSize": true
-			}
-		},
 		"__experimentalBorder": {
 			"color": true,
 			"radius": true,
@@ -85,11 +61,10 @@
 				"width": true
 			}
 		},
-		"spacing": {
-			"margin": true
-		},
 		"html": false
 	},
 	"editorStyle": "wp-block-search-editor",
 	"style": "wp-block-search"
 }
+
+# auto-update
