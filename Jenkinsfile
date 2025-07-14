@@ -2,18 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clean Workspace') {
+            steps {
+                deleteDir() // Clean workspace
+            }
+        }
+
+        stage('Pull Code from GitHub') {
             steps {
                 git url: 'https://github.com/Kadacheahmedrami/Jenkins-pipeline-automation.git', branch: 'main'
             }
         }
 
-        stage('Build & Deploy') {
+        stage('Rebuild Containers') {
             steps {
                 sh '''
-                    docker compose down
-                    docker compose build
-                    docker compose up -d
+                    cd /app
+                    docker-compose down || true
+                    docker-compose build
+                    docker-compose up -d
                 '''
             }
         }
