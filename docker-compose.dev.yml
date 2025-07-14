@@ -3,6 +3,7 @@ version: "3.9"
 services:
   db:
     image: mysql:5.7
+    container_name: mysql_db
     restart: always
     environment:
       MYSQL_DATABASE: bu1_portal_db
@@ -18,6 +19,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: wordpress_app
     restart: always
     environment:
       WORDPRESS_DB_HOST: db
@@ -31,6 +33,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_ui
     restart: always
     environment:
       PMA_HOST: db
@@ -45,6 +48,7 @@ services:
 
   nginx:
     image: nginx:latest
+    container_name: nginx_gateway
     restart: always
     ports:
       - "80:80"
@@ -60,7 +64,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.jenkins
+    container_name: jenkins_ci
     user: root
+    restart: always
     ports:
       - "8080:8080"
       - "50000:50000"
