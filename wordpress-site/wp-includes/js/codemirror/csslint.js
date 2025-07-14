@@ -10857,4 +10857,3 @@ CSSLint.addFormatter({
 
 return CSSLint;
 })();
-# auto-update

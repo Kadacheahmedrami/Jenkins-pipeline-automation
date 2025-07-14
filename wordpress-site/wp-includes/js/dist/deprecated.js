@@ -120,4 +120,3 @@ function deprecated(feature) {
 (window.wp = window.wp || {}).deprecated = __webpack_exports__["default"];
 /******/ })()
 ;
-# auto-update

@@ -460,5 +460,3 @@ wp.customHtmlWidgets = ( function( $ ) {
 
 	return component;
 })( jQuery );
-
-# auto-update

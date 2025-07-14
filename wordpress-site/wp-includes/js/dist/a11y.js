@@ -258,4 +258,3 @@ function speak(message, ariaLive) {
 (window.wp = window.wp || {}).a11y = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

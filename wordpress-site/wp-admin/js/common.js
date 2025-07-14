@@ -2077,5 +2077,3 @@ $( function( $ ) {
 })();
 
 }( jQuery, window ));
-
-# auto-update

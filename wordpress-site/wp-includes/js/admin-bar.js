@@ -451,5 +451,3 @@
 	}
 
 } )( document, window, navigator );
-
-# auto-update

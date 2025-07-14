@@ -145,5 +145,3 @@
 		});
 	});
 })(jQuery);
-
-# auto-update

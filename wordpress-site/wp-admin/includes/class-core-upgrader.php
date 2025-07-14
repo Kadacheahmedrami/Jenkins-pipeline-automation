@@ -13,10 +13,6 @@
  * It allows for WordPress to upgrade itself in combination with
  * the wp-admin/includes/update-core.php file.
  *
- * Note: Newly introduced functions and methods cannot be used here.
- * All functions must be present in the previous version being upgraded from
- * as this file is used there too.
- *
  * @since 2.8.0
  * @since 4.6.0 Moved to its own file from wp-admin/includes/class-wp-upgrader.php.
  *
@@ -25,7 +21,7 @@
 class Core_Upgrader extends WP_Upgrader {
 
 	/**
-	 * Initializes the upgrade strings.
+	 * Initialize the upgrade strings.
 	 *
 	 * @since 2.8.0
 	 */
@@ -34,16 +30,16 @@ class Core_Upgrader extends WP_Upgrader {
 		$this->strings['locked']     = __( 'Another update is currently in progress.' );
 		$this->strings['no_package'] = __( 'Update package not available.' );
 		/* translators: %s: Package URL. */
-		$this->strings['downloading_package']   = sprintf( __( 'Downloading update from %s&#8230;' ), '<span class="code pre">%s</span>' );
+		$this->strings['downloading_package']   = sprintf( __( 'Downloading update from %s&#8230;' ), '<span class="code">%s</span>' );
 		$this->strings['unpack_package']        = __( 'Unpacking the update&#8230;' );
 		$this->strings['copy_failed']           = __( 'Could not copy files.' );
 		$this->strings['copy_failed_space']     = __( 'Could not copy files. You may have run out of disk space.' );
-		$this->strings['start_rollback']        = __( 'Attempting to restore the previous version.' );
-		$this->strings['rollback_was_required'] = __( 'Due to an error during updating, WordPress has been restored to your previous version.' );
+		$this->strings['start_rollback']        = __( 'Attempting to roll back to previous version.' );
+		$this->strings['rollback_was_required'] = __( 'Due to an error during updating, WordPress has rolled back to your previous version.' );
 	}
 
 	/**
-	 * Upgrades WordPress core.
+	 * Upgrade WordPress core.
 	 *
 	 * @since 2.8.0
 	 *
@@ -125,12 +121,10 @@ class Core_Upgrader extends WP_Upgrader {
 			return new WP_Error( 'locked', $this->strings['locked'] );
 		}
 
-		$download = $this->download_package( $current->packages->$to_download, false );
+		$download = $this->download_package( $current->packages->$to_download, true );
 
-		/*
-		 * Allow for signature soft-fail.
-		 * WARNING: This may be removed in the future.
-		 */
+		// Allow for signature soft-fail.
+		// WARNING: This may be removed in the future.
 		if ( is_wp_error( $download ) && $download->get_error_data( 'softfail-filename' ) ) {
 			// Output the failure error as a normal feedback, and not as an error:
 			/** This filter is documented in wp-admin/includes/update-core.php */
@@ -187,9 +181,9 @@ class Core_Upgrader extends WP_Upgrader {
 				 * mkdir_failed__copy_dir, copy_failed__copy_dir_retry, and disk_full.
 				 * do_rollback allows for update_core() to trigger a rollback if needed.
 				 */
-				if ( str_contains( $error_code, 'do_rollback' ) ) {
+				if ( false !== strpos( $error_code, 'do_rollback' ) ) {
 					$try_rollback = true;
-				} elseif ( str_contains( $error_code, '__copy_dir' ) ) {
+				} elseif ( false !== strpos( $error_code, '__copy_dir' ) ) {
 					$try_rollback = true;
 				} elseif ( 'disk_full' === $error_code ) {
 					$try_rollback = true;
@@ -329,7 +323,7 @@ class Core_Upgrader extends WP_Upgrader {
 			}
 
 			// Don't claim we can update on update-core.php if we have a non-critical failure logged.
-			if ( $wp_version === $failure_data['current'] && str_contains( $offered_ver, '.1.next.minor' ) ) {
+			if ( $wp_version === $failure_data['current'] && false !== strpos( $offered_ver, '.1.next.minor' ) ) {
 				return false;
 			}
 
@@ -391,7 +385,7 @@ class Core_Upgrader extends WP_Upgrader {
 	}
 
 	/**
-	 * Compares the disk file checksums against the expected checksums.
+	 * Compare the disk file checksums against the expected checksums.
 	 *
 	 * @since 3.7.0
 	 *
@@ -411,7 +405,7 @@ class Core_Upgrader extends WP_Upgrader {
 
 		foreach ( $checksums as $file => $checksum ) {
 			// Skip files which get updated.
-			if ( str_starts_with( $file, 'wp-content' ) ) {
+			if ( 'wp-content' === substr( $file, 0, 10 ) ) {
 				continue;
 			}
 			if ( ! file_exists( ABSPATH . $file ) || md5_file( ABSPATH . $file ) !== $checksum ) {

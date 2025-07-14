@@ -991,5 +991,3 @@ window.wp = window.wp || {};
 	 */
 	exports.customize = api;
 })( wp, jQuery );
-
-# auto-update

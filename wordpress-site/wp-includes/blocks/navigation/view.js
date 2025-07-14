@@ -91,4 +91,3 @@ window.addEventListener('load', () => {
 
 /******/ })()
 ;
-# auto-update

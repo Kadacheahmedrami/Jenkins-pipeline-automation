@@ -100,5 +100,3 @@ jQuery( function($) {
 		$timestampdiv.slideUp( 'fast' );
 	});
 });
-
-# auto-update

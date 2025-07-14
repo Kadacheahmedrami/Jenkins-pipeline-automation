@@ -239,5 +239,3 @@ window.wpgallery = {
 		return s;
 	}
 };
-
-# auto-update

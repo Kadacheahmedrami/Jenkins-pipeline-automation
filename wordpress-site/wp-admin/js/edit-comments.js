@@ -1354,5 +1354,3 @@ $( function(){
 });
 
 })(jQuery);
-
-# auto-update

@@ -1,16 +1,16 @@
 /*!
- * jQuery UI Mouse 1.13.3
- * https://jqueryui.com
+ * jQuery UI Mouse 1.13.1
+ * http://jqueryui.com
  *
- * Copyright OpenJS Foundation and other contributors
+ * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
- * https://jquery.org/license
+ * http://jquery.org/license
  */
 
 //>>label: Mouse
 //>>group: Widgets
 //>>description: Abstracts mouse-based interactions to assist in creating certain widgets.
-//>>docs: https://api.jqueryui.com/mouse/
+//>>docs: http://api.jqueryui.com/mouse/
 
 ( function( factory ) {
 	"use strict";
@@ -20,9 +20,7 @@
 		// AMD. Register as an anonymous module.
 		define( [
 			"jquery",
-			"../ie",
-			"../version",
-			"../widget"
+			"./core"
 		], factory );
 	} else {
 
@@ -38,7 +36,7 @@ $( document ).on( "mouseup", function() {
 } );
 
 return $.widget( "ui.mouse", {
-	version: "1.13.3",
+	version: "1.13.1",
 	options: {
 		cancel: "input, textarea, button, select, option",
 		distance: 1,
@@ -148,17 +146,17 @@ return $.widget( "ui.mouse", {
 
 			// IE mouseup check - mouseup happened when mouse was out of window
 			if ( $.ui.ie && ( !document.documentMode || document.documentMode < 9 ) &&
-					!event.button ) {
+				!event.button ) {
 				return this._mouseUp( event );
 
-			// Iframe mouseup check - mouseup occurred in another document
+				// Iframe mouseup check - mouseup occurred in another document
 			} else if ( !event.which ) {
 
 				// Support: Safari <=8 - 9
 				// Safari sets which to 0 if you press any of the following keys
 				// during a drag (#14461)
 				if ( event.originalEvent.altKey || event.originalEvent.ctrlKey ||
-						event.originalEvent.metaKey || event.originalEvent.shiftKey ) {
+					event.originalEvent.metaKey || event.originalEvent.shiftKey ) {
 					this.ignoreMissingWhich = true;
 				} else if ( !this.ignoreMissingWhich ) {
 					return this._mouseUp( event );

@@ -6,11 +6,6 @@
  * @subpackage Administration
  */
 
-// Don't load directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	die( '-1' );
-}
-
 header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
 if ( ! defined( 'WP_ADMIN' ) ) {
 	require_once __DIR__ . '/admin.php';
@@ -19,7 +14,7 @@ if ( ! defined( 'WP_ADMIN' ) ) {
 /**
  * In case admin-header.php is included in a function.
  *
- * @global string    $title              The title of the current screen.
+ * @global string    $title
  * @global string    $hook_suffix
  * @global WP_Screen $current_screen     WordPress current screen object.
  * @global WP_Locale $wp_locale          WordPress date and time locale object.
@@ -114,7 +109,7 @@ var ajaxurl = '<?php echo esc_js( admin_url( 'admin-ajax.php', 'relative' ) ); ?
 <?php
 
 /**
- * Fires when enqueuing scripts for all admin pages.
+ * Enqueue scripts for all admin pages.
  *
  * @since 2.8.0
  *
@@ -208,15 +203,10 @@ if ( is_network_admin() ) {
 	$admin_body_class .= ' network-admin';
 }
 
-$admin_body_class .= ' no-customize-support svg';
+$admin_body_class .= ' no-customize-support no-svg';
 
 if ( $current_screen->is_block_editor() ) {
 	$admin_body_class .= ' block-editor-page wp-embed-responsive';
-}
-
-$admin_body_class .= ' wp-theme-' . sanitize_html_class( get_template() );
-if ( is_child_theme() ) {
-	$admin_body_class .= ' wp-child-theme-' . sanitize_html_class( get_stylesheet() );
 }
 
 $error_get_last = error_get_last();
@@ -252,7 +242,7 @@ unset( $error_get_last );
 $admin_body_classes = apply_filters( 'admin_body_class', '' );
 $admin_body_classes = ltrim( $admin_body_classes . ' ' . $admin_body_class );
 ?>
-<body class="wp-admin wp-core-ui no-js <?php echo esc_attr( $admin_body_classes ); ?>">
+<body class="wp-admin wp-core-ui no-js <?php echo $admin_body_classes; ?>">
 <script type="text/javascript">
 	document.body.className = document.body.className.replace('no-js','js');
 </script>

@@ -442,5 +442,3 @@ window.addComment = ( function( window ) {
 		moveForm: moveForm
 	};
 })( window );
-
-# auto-update

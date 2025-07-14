@@ -1,17 +1,17 @@
 /*!
- * jQuery UI Spinner 1.13.3
- * https://jqueryui.com
+ * jQuery UI Spinner 1.13.1
+ * http://jqueryui.com
  *
- * Copyright OpenJS Foundation and other contributors
+ * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
- * https://jquery.org/license
+ * http://jquery.org/license
  */
 
 //>>label: Spinner
 //>>group: Widgets
 //>>description: Displays buttons to easily input numbers via the keyboard or mouse.
-//>>docs: https://api.jqueryui.com/spinner/
-//>>demos: https://jqueryui.com/spinner/
+//>>docs: http://api.jqueryui.com/spinner/
+//>>demos: http://jqueryui.com/spinner/
 //>>css.structure: ../../themes/base/core.css
 //>>css.structure: ../../themes/base/spinner.css
 //>>css.theme: ../../themes/base/theme.css
@@ -25,10 +25,7 @@
 		define( [
 			"jquery",
 			"./button",
-			"../version",
-			"../keycode",
-			"../safe-active-element",
-			"../widget"
+			"./core"
 		], factory );
 	} else {
 
@@ -50,7 +47,7 @@ function spinnerModifier( fn ) {
 }
 
 $.widget( "ui.spinner", {
-	version: "1.13.3",
+	version: "1.13.1",
 	defaultElement: "<input>",
 	widgetEventPrefix: "spin",
 	options: {
@@ -237,10 +234,10 @@ $.widget( "ui.spinner", {
 			.wrap( "<span>" )
 			.parent()
 
-				// Add buttons
-				.append(
-					"<a></a><a></a>"
-				);
+			// Add buttons
+			.append(
+				"<a></a><a></a>"
+			);
 	},
 
 	_draw: function() {
@@ -278,7 +275,7 @@ $.widget( "ui.spinner", {
 		// IE 6 doesn't understand height: 50% for the buttons
 		// unless the wrapper has an explicit height
 		if ( this.buttons.height() > Math.ceil( this.uiSpinner.height() * 0.5 ) &&
-				this.uiSpinner.height() > 0 ) {
+			this.uiSpinner.height() > 0 ) {
 			this.uiSpinner.height( this.uiSpinner.height() );
 		}
 	},
@@ -288,18 +285,18 @@ $.widget( "ui.spinner", {
 			keyCode = $.ui.keyCode;
 
 		switch ( event.keyCode ) {
-		case keyCode.UP:
-			this._repeat( null, 1, event );
-			return true;
-		case keyCode.DOWN:
-			this._repeat( null, -1, event );
-			return true;
-		case keyCode.PAGE_UP:
-			this._repeat( null, options.page, event );
-			return true;
-		case keyCode.PAGE_DOWN:
-			this._repeat( null, -options.page, event );
-			return true;
+			case keyCode.UP:
+				this._repeat( null, 1, event );
+				return true;
+			case keyCode.DOWN:
+				this._repeat( null, -1, event );
+				return true;
+			case keyCode.PAGE_UP:
+				this._repeat( null, options.page, event );
+				return true;
+			case keyCode.PAGE_DOWN:
+				this._repeat( null, -options.page, event );
+				return true;
 		}
 
 		return false;
@@ -564,8 +561,8 @@ if ( $.uiBackCompat !== false ) {
 				.wrap( this._uiSpinnerHtml() )
 				.parent()
 
-					// Add buttons
-					.append( this._buttonHtml() );
+				// Add buttons
+				.append( this._buttonHtml() );
 		},
 		_uiSpinnerHtml: function() {
 			return "<span>";

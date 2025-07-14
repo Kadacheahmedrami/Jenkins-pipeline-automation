@@ -216,4 +216,3 @@ const controls = {
 (window.wp = window.wp || {}).dataControls = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

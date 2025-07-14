@@ -3427,5 +3427,3 @@
 	}
 
 })( wp.customize, wp, jQuery );
-
-# auto-update

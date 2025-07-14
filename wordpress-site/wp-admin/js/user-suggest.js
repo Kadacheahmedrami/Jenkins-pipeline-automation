@@ -62,5 +62,3 @@
 		});
 	});
 })( jQuery );
-
-# auto-update

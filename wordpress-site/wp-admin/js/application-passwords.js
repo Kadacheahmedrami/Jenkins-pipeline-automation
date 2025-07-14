@@ -217,5 +217,3 @@
 		$( '.notice', $appPassSection ).remove();
 	}
 }( jQuery ) );
-
-# auto-update

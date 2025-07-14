@@ -837,5 +837,3 @@ window.communityEventsData.l10n = window.communityEventsData.l10n || {
 };
 
 window.communityEventsData.l10n = window.wp.deprecateL10nObject( 'communityEventsData.l10n', window.communityEventsData.l10n, '5.6.0' );
-
-# auto-update

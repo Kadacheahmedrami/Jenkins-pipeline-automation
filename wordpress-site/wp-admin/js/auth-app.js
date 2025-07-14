@@ -163,5 +163,3 @@
 		e.preventDefault();
 	} );
 }( jQuery, authApp ) );
-
-# auto-update

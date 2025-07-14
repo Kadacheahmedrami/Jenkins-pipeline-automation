@@ -75,4 +75,3 @@ hidePdfEmbedsOnUnsupportedBrowsers();
 
 /******/ })()
 ;
-# auto-update

@@ -2112,5 +2112,3 @@ jQuery( function($) {
 
 	$(window).on( 'resize', function(){ tb_position(); });
 });
-
-# auto-update

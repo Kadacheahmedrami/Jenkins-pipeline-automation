@@ -289,5 +289,3 @@ window.wp = window.wp || {};
 	// Expose the API publicly on window.wp.customize.Loader.
 	api.Loader = Loader;
 })( wp, jQuery );
-
-# auto-update

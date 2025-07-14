@@ -9351,5 +9351,3 @@
 	});
 
 })( wp, jQuery );
-
-# auto-update

@@ -354,5 +354,3 @@
 	// Register the color picker as a widget.
 	$.widget( 'wp.wpColorPicker', ColorPicker );
 }( jQuery ) );
-
-# auto-update

@@ -92,5 +92,3 @@
 	}
 
 })(jQuery);
-
-# auto-update

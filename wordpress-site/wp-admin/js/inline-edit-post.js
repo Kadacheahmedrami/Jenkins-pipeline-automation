@@ -597,5 +597,3 @@ $( function() {
 });
 
 })( jQuery, window.wp );
-
-# auto-update

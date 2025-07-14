@@ -344,5 +344,3 @@ jQuery( function( $ ) {
 		}
 	} );
 });
-
-# auto-update

@@ -652,5 +652,3 @@
 	};
 
 }(jQuery));
-
-# auto-update

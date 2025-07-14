@@ -165,5 +165,3 @@ jQuery( function($) {
 	});
 
 });
-
-# auto-update

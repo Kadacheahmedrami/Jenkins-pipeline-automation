@@ -1414,5 +1414,3 @@ window.wp = window.wp || {};
 	};
 
 }( window.jQuery, window.wp ));
-
-# auto-update

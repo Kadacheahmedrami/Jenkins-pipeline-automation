@@ -28,5 +28,3 @@ HTMLHint.addRule({
 		});
 	}
 });
-
-# auto-update

@@ -240,5 +240,3 @@
 		} );
 	});
 })( jQuery );
-
-# auto-update

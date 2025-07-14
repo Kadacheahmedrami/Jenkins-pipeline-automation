@@ -41,5 +41,3 @@ jQuery(function($) {
 		}
 	});
 });
-
-# auto-update

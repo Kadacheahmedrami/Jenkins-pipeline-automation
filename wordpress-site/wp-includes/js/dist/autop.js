@@ -440,4 +440,3 @@ function removep(html) {
 (window.wp = window.wp || {}).autop = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

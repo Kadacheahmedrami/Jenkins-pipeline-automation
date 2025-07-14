@@ -49780,4 +49780,3 @@ function hashOptions(options) {
 (window.wp = window.wp || {}).blockEditor = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

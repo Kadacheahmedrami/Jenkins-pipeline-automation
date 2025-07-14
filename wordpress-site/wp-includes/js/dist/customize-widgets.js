@@ -3084,4 +3084,3 @@ function initialize(editorName, blockEditorSettings) {
 (window.wp = window.wp || {}).customizeWidgets = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

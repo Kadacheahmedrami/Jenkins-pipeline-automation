@@ -147,5 +147,3 @@ window.wp = window.wp || {};
 	 */
 	window.passwordStrength = wp.passwordStrength.meter;
 })(jQuery);
-
-# auto-update

@@ -782,4 +782,3 @@ apiFetch.mediaUploadMiddleware = media_upload;
 (window.wp = window.wp || {}).apiFetch = __webpack_exports__["default"];
 /******/ })()
 ;
-# auto-update

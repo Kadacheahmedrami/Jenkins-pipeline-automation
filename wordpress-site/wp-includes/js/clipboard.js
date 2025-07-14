@@ -874,4 +874,3 @@ module.exports.TinyEmitter = E;
 /******/ })()
 .default;
 });
-# auto-update

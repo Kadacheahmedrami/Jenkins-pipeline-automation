@@ -11,7 +11,7 @@
  */
 
 /**
- * Retrieves RSS container for the bloginfo function.
+ * RSS container for the bloginfo function.
  *
  * You can retrieve anything that you can using the get_bloginfo() function.
  * Everything will be stripped of tags and characters converted, when the values
@@ -41,7 +41,7 @@ function get_bloginfo_rss( $show = '' ) {
 }
 
 /**
- * Displays RSS container for the bloginfo function.
+ * Display RSS container for the bloginfo function.
  *
  * You can retrieve anything that you can using the get_bloginfo() function.
  * Everything will be stripped of tags and characters converted, when the values
@@ -68,7 +68,7 @@ function bloginfo_rss( $show = '' ) {
 }
 
 /**
- * Retrieves the default feed.
+ * Retrieve the default feed.
  *
  * The default feed is 'rss2', unless a plugin changes it through the
  * {@see 'default_feed'} filter.
@@ -92,12 +92,12 @@ function get_default_feed() {
 }
 
 /**
- * Retrieves the blog title for the feed title.
+ * Retrieve the blog title for the feed title.
  *
  * @since 2.2.0
  * @since 4.4.0 The optional `$sep` parameter was deprecated and renamed to `$deprecated`.
  *
- * @param string $deprecated Unused.
+ * @param string $deprecated Unused..
  * @return string The document title.
  */
 function get_wp_title_rss( $deprecated = '&#8211;' ) {
@@ -119,7 +119,7 @@ function get_wp_title_rss( $deprecated = '&#8211;' ) {
 }
 
 /**
- * Displays the blog title for display of the feed title.
+ * Display the blog title for display of the feed title.
  *
  * @since 2.2.0
  * @since 4.4.0 The optional `$sep` parameter was deprecated and renamed to `$deprecated`.
@@ -147,16 +147,14 @@ function wp_title_rss( $deprecated = '&#8211;' ) {
 }
 
 /**
- * Retrieves the current post title for the feed.
+ * Retrieve the current post title for the feed.
  *
  * @since 2.0.0
- * @since 6.6.0 Added the `$post` parameter.
  *
- * @param int|WP_Post $post Optional. Post ID or WP_Post object. Default is global $post.
  * @return string Current post title.
  */
-function get_the_title_rss( $post = 0 ) {
-	$title = get_the_title( $post );
+function get_the_title_rss() {
+	$title = get_the_title();
 
 	/**
 	 * Filters the post title for use in a feed.
@@ -169,7 +167,7 @@ function get_the_title_rss( $post = 0 ) {
 }
 
 /**
- * Displays the post title in the feed.
+ * Display the post title in the feed.
  *
  * @since 0.71
  */
@@ -178,7 +176,7 @@ function the_title_rss() {
 }
 
 /**
- * Retrieves the post content for feeds.
+ * Retrieve the post content for feeds.
  *
  * @since 2.9.0
  *
@@ -209,7 +207,7 @@ function get_the_content_feed( $feed_type = null ) {
 }
 
 /**
- * Displays the post content for feeds.
+ * Display the post content for feeds.
  *
  * @since 2.9.0
  *
@@ -220,7 +218,7 @@ function the_content_feed( $feed_type = null ) {
 }
 
 /**
- * Displays the post excerpt for the feed.
+ * Display the post excerpt for the feed.
  *
  * @since 0.71
  */
@@ -237,7 +235,7 @@ function the_excerpt_rss() {
 }
 
 /**
- * Displays the permalink to the post for use in feeds.
+ * Display the permalink to the post for use in feeds.
  *
  * @since 2.3.0
  */
@@ -253,7 +251,7 @@ function the_permalink_rss() {
 }
 
 /**
- * Outputs the link to the comments for the current post in an XML safe way.
+ * Outputs the link to the comments for the current post in an xml safe way
  *
  * @since 3.0.0
  */
@@ -270,7 +268,7 @@ function comments_link_feed() {
 }
 
 /**
- * Displays the feed GUID for the current comment.
+ * Display the feed GUID for the current comment.
  *
  * @since 2.5.0
  *
@@ -281,7 +279,7 @@ function comment_guid( $comment_id = null ) {
 }
 
 /**
- * Retrieves the feed GUID for the current comment.
+ * Retrieve the feed GUID for the current comment.
  *
  * @since 2.5.0
  *
@@ -299,7 +297,7 @@ function get_comment_guid( $comment_id = null ) {
 }
 
 /**
- * Displays the link to the comments.
+ * Display the link to the comments.
  *
  * @since 1.5.0
  * @since 4.4.0 Introduced the `$comment` argument.
@@ -320,11 +318,11 @@ function comment_link( $comment = null ) {
 }
 
 /**
- * Retrieves the current comment author for use in the feeds.
+ * Retrieve the current comment author for use in the feeds.
  *
  * @since 2.0.0
  *
- * @return string Comment Author.
+ * @return string Comment Author
  */
 function get_comment_author_rss() {
 	/**
@@ -340,7 +338,7 @@ function get_comment_author_rss() {
 }
 
 /**
- * Displays the current comment author in the feed.
+ * Display the current comment author in the feed.
  *
  * @since 1.0.0
  */
@@ -349,7 +347,7 @@ function comment_author_rss() {
 }
 
 /**
- * Displays the current comment content for use in the feeds.
+ * Display the current comment content for use in the feeds.
  *
  * @since 1.0.0
  */
@@ -367,7 +365,7 @@ function comment_text_rss() {
 }
 
 /**
- * Retrieves all of the post categories, formatted for use in feeds.
+ * Retrieve all of the post categories, formatted for use in feeds.
  *
  * All of the categories for the current post in the feed loop, will be
  * retrieved and have feed markup added, so that they can easily be added to the
@@ -429,7 +427,7 @@ function get_the_category_rss( $type = null ) {
 }
 
 /**
- * Displays the post categories in the feed.
+ * Display the post categories in the feed.
  *
  * @since 0.71
  *
@@ -442,7 +440,7 @@ function the_category_rss( $type = null ) {
 }
 
 /**
- * Displays the HTML type based on the blog setting.
+ * Display the HTML type based on the blog setting.
  *
  * The two possible values are either 'xhtml' or 'html'.
  *
@@ -450,7 +448,7 @@ function the_category_rss( $type = null ) {
  */
 function html_type_rss() {
 	$type = get_bloginfo( 'html_type' );
-	if ( str_contains( $type, 'xhtml' ) ) {
+	if ( strpos( $type, 'xhtml' ) !== false ) {
 		$type = 'xhtml';
 	} else {
 		$type = 'html';
@@ -459,7 +457,7 @@ function html_type_rss() {
 }
 
 /**
- * Displays the rss enclosure for the current post.
+ * Display the rss enclosure for the current post.
  *
  * Uses the global $post to check whether the post requires a password and if
  * the user has the password for the post. If not then it will return before
@@ -482,10 +480,6 @@ function rss_enclosure() {
 			foreach ( (array) $val as $enc ) {
 				$enclosure = explode( "\n", $enc );
 
-				if ( count( $enclosure ) < 3 ) {
-					continue;
-				}
-
 				// Only get the first element, e.g. 'audio/mpeg' from 'audio/mpeg mpga mp2 mp3'.
 				$t    = preg_split( '/[ \t]/', trim( $enclosure[2] ) );
 				$type = $t[0];
@@ -504,7 +498,7 @@ function rss_enclosure() {
 }
 
 /**
- * Displays the atom enclosure for the current post.
+ * Display the atom enclosure for the current post.
  *
  * Uses the global $post to check whether the post requires a password and if
  * the user has the password for the post. If not then it will return before
@@ -569,7 +563,7 @@ function atom_enclosure() {
 }
 
 /**
- * Determines the type of a string of data with the data formatted.
+ * Determine the type of a string of data with the data formatted.
  *
  * Tell whether the type is text, HTML, or XHTML, per RFC 4287 section 3.1.
  *
@@ -582,16 +576,16 @@ function atom_enclosure() {
  *
  * @since 2.5.0
  *
- * @param string $data Input string.
+ * @param string $data Input string
  * @return array array(type, value)
  */
 function prep_atom_text_construct( $data ) {
-	if ( ! str_contains( $data, '<' ) && ! str_contains( $data, '&' ) ) {
+	if ( strpos( $data, '<' ) === false && strpos( $data, '&' ) === false ) {
 		return array( 'text', $data );
 	}
 
 	if ( ! function_exists( 'xml_parser_create' ) ) {
-		wp_trigger_error( '', __( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." ) );
+		trigger_error( __( "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension." ) );
 
 		return array( 'html', "<![CDATA[$data]]>" );
 	}
@@ -603,7 +597,7 @@ function prep_atom_text_construct( $data ) {
 	unset( $parser );
 
 	if ( ! $code ) {
-		if ( ! str_contains( $data, '<' ) ) {
+		if ( strpos( $data, '<' ) === false ) {
 			return array( 'text', $data );
 		} else {
 			$data = "<div xmlns='http://www.w3.org/1999/xhtml'>$data</div>";
@@ -611,7 +605,7 @@ function prep_atom_text_construct( $data ) {
 		}
 	}
 
-	if ( ! str_contains( $data, ']]>' ) ) {
+	if ( strpos( $data, ']]>' ) === false ) {
 		return array( 'html', "<![CDATA[$data]]>" );
 	} else {
 		return array( 'html', htmlspecialchars( $data ) );
@@ -664,18 +658,12 @@ function rss2_site_icon() {
  * @return string Correct link for the atom:self element.
  */
 function get_self_link() {
-	$parsed = parse_url( home_url() );
-
-	$domain = $parsed['host'];
-	if ( isset( $parsed['port'] ) ) {
-		$domain .= ':' . $parsed['port'];
-	}
-
-	return set_url_scheme( 'http://' . $domain . wp_unslash( $_SERVER['REQUEST_URI'] ) );
+	$host = parse_url( home_url() );
+	return set_url_scheme( 'http://' . $host['host'] . wp_unslash( $_SERVER['REQUEST_URI'] ) );
 }
 
 /**
- * Displays the link for the currently displayed feed in a XSS safe way.
+ * Display the link for the currently displayed feed in a XSS safe way.
  *
  * Generate a correct link for the atom:self element.
  *
@@ -696,14 +684,14 @@ function self_link() {
 }
 
 /**
- * Gets the UTC time of the most recently modified post from WP_Query.
+ * Get the UTC time of the most recently modified post from WP_Query.
  *
  * If viewing a comment feed, the time of the most recently modified
  * comment will be returned.
  *
- * @since 5.2.0
- *
  * @global WP_Query $wp_query WordPress Query object.
+ *
+ * @since 5.2.0
  *
  * @param string $format Date format string to return the time in.
  * @return string|false The time in requested format, or false on failure.
@@ -754,12 +742,11 @@ function get_feed_build_date( $format ) {
 }
 
 /**
- * Returns the content type for specified feed type.
+ * Return the content type for specified feed type.
  *
  * @since 2.8.0
  *
  * @param string $type Type of feed. Possible values include 'rss', rss2', 'atom', and 'rdf'.
- * @return string Content type for specified feed type.
  */
 function feed_content_type( $type = '' ) {
 	if ( empty( $type ) ) {
@@ -788,17 +775,17 @@ function feed_content_type( $type = '' ) {
 }
 
 /**
- * Builds SimplePie object based on RSS or Atom feed from URL.
+ * Build SimplePie object based on RSS or Atom feed from URL.
  *
  * @since 2.8.0
  *
  * @param string|string[] $url URL of feed to retrieve. If an array of URLs, the feeds are merged
  *                             using SimplePie's multifeed feature.
  *                             See also {@link http://simplepie.org/wiki/faq/typical_multifeed_gotchas}
- * @return SimplePie\SimplePie|WP_Error SimplePie object on success or WP_Error object on failure.
+ * @return SimplePie|WP_Error SimplePie object on success or WP_Error object on failure.
  */
 function fetch_feed( $url ) {
-	if ( ! class_exists( 'SimplePie\SimplePie', false ) ) {
+	if ( ! class_exists( 'SimplePie', false ) ) {
 		require_once ABSPATH . WPINC . '/class-simplepie.php';
 	}
 
@@ -806,13 +793,11 @@ function fetch_feed( $url ) {
 	require_once ABSPATH . WPINC . '/class-wp-simplepie-file.php';
 	require_once ABSPATH . WPINC . '/class-wp-simplepie-sanitize-kses.php';
 
-	$feed = new SimplePie\SimplePie();
+	$feed = new SimplePie();
 
 	$feed->set_sanitize_class( 'WP_SimplePie_Sanitize_KSES' );
-	/*
-	 * We must manually overwrite $feed->sanitize because SimplePie's constructor
-	 * sets it before we have a chance to set the sanitization class.
-	 */
+	// We must manually overwrite $feed->sanitize because SimplePie's constructor
+	// sets it before we have a chance to set the sanitization class.
 	$feed->sanitize = new WP_SimplePie_Sanitize_KSES();
 
 	// Register the cache handler using the recommended method for SimplePie 1.3 or later.
@@ -836,13 +821,13 @@ function fetch_feed( $url ) {
 	 *
 	 * @since 3.0.0
 	 *
-	 * @param SimplePie\SimplePie $feed SimplePie feed object (passed by reference).
-	 * @param string|string[]     $url  URL of feed or array of URLs of feeds to retrieve.
+	 * @param SimplePie       $feed SimplePie feed object (passed by reference).
+	 * @param string|string[] $url  URL of feed or array of URLs of feeds to retrieve.
 	 */
 	do_action_ref_array( 'wp_feed_options', array( &$feed, $url ) );
 
 	$feed->init();
-	$feed->set_output_encoding( get_bloginfo( 'charset' ) );
+	$feed->set_output_encoding( get_option( 'blog_charset' ) );
 
 	if ( $feed->error() ) {
 		return new WP_Error( 'simplepie-error', $feed->error() );

@@ -47114,4 +47114,3 @@ const __experimentalRegisterExperimentalCoreBlocks =  false ? 0 : undefined;
 (window.wp = window.wp || {}).blockLibrary = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

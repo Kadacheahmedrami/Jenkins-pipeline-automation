@@ -236,5 +236,3 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 	};
 
 })( jQuery, window, document );
-
-# auto-update

@@ -897,5 +897,3 @@
 	});
 
 })( wp, jQuery );
-
-# auto-update

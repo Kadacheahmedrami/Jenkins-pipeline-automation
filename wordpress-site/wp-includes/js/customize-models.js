@@ -279,5 +279,3 @@
 	});
 
 })( jQuery, window.wp );
-
-# auto-update

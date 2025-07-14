@@ -1,17 +1,17 @@
 /*!
- * jQuery UI Resizable 1.13.3
- * https://jqueryui.com
+ * jQuery UI Resizable 1.13.1
+ * http://jqueryui.com
  *
- * Copyright OpenJS Foundation and other contributors
+ * Copyright jQuery Foundation and other contributors
  * Released under the MIT license.
- * https://jquery.org/license
+ * http://jquery.org/license
  */
 
 //>>label: Resizable
 //>>group: Interactions
 //>>description: Enables resize functionality for any element.
-//>>docs: https://api.jqueryui.com/resizable/
-//>>demos: https://jqueryui.com/resizable/
+//>>docs: http://api.jqueryui.com/resizable/
+//>>demos: http://jqueryui.com/resizable/
 //>>css.structure: ../../themes/base/core.css
 //>>css.structure: ../../themes/base/resizable.css
 //>>css.theme: ../../themes/base/theme.css
@@ -25,10 +25,7 @@
 		define( [
 			"jquery",
 			"./mouse",
-			"../disable-selection",
-			"../plugin",
-			"../version",
-			"../widget"
+			"./core"
 		], factory );
 	} else {
 
@@ -39,7 +36,7 @@
 "use strict";
 
 $.widget( "ui.resizable", $.ui.mouse, {
-	version: "1.13.3",
+	version: "1.13.1",
 	widgetEventPrefix: "resize",
 	options: {
 		alsoResize: false,
@@ -231,15 +228,15 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		this._super( key, value );
 
 		switch ( key ) {
-		case "handles":
-			this._removeHandles();
-			this._setupHandles();
-			break;
-		case "aspectRatio":
-			this._aspectRatio = !!value;
-			break;
-		default:
-			break;
+			case "handles":
+				this._removeHandles();
+				this._setupHandles();
+				break;
+			case "aspectRatio":
+				this._aspectRatio = !!value;
+				break;
+			default:
+				break;
 		}
 	},
 
@@ -303,9 +300,9 @@ $.widget( "ui.resizable", $.ui.mouse, {
 				}
 
 				if ( this.elementIsWrapper &&
-						this.originalElement[ 0 ]
-							.nodeName
-							.match( /^(textarea|input|select|button)$/i ) ) {
+					this.originalElement[ 0 ]
+						.nodeName
+						.match( /^(textarea|input|select|button)$/i ) ) {
 					axis = $( this.handles[ i ], this.element );
 
 					padWrapper = /sw|ne|nw|se|n|s/.test( i ) ?
@@ -314,8 +311,8 @@ $.widget( "ui.resizable", $.ui.mouse, {
 
 					padPos = [ "padding",
 						/ne|nw|n/.test( i ) ? "Top" :
-						/se|sw|s/.test( i ) ? "Bottom" :
-						/^e$/.test( i ) ? "Right" : "Left" ].join( "" );
+							/se|sw|s/.test( i ) ? "Bottom" :
+								/^e$/.test( i ) ? "Right" : "Left" ].join( "" );
 
 					target.css( padPos, padWrapper );
 
@@ -387,20 +384,20 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		this.position = { left: curleft, top: curtop };
 
 		this.size = this._helper ? {
-				width: this.helper.width(),
-				height: this.helper.height()
-			} : {
-				width: el.width(),
-				height: el.height()
-			};
+			width: this.helper.width(),
+			height: this.helper.height()
+		} : {
+			width: el.width(),
+			height: el.height()
+		};
 
 		this.originalSize = this._helper ? {
-				width: el.outerWidth(),
-				height: el.outerHeight()
-			} : {
-				width: el.width(),
-				height: el.height()
-			};
+			width: el.outerWidth(),
+			height: el.outerHeight()
+		} : {
+			width: el.width(),
+			height: el.height()
+		};
 
 		this.sizeDiff = {
 			width: el.outerWidth() - el.width(),
@@ -533,17 +530,14 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		if ( this.position.left !== this.prevPosition.left ) {
 			props.left = this.position.left + "px";
 		}
-
-		this.helper.css( props );
-
 		if ( this.size.width !== this.prevSize.width ) {
 			props.width = this.size.width + "px";
-			this.helper.width( props.width );
 		}
 		if ( this.size.height !== this.prevSize.height ) {
 			props.height = this.size.height + "px";
-			this.helper.height( props.height );
 		}
+
+		this.helper.css( props );
 
 		return props;
 	},
@@ -1051,7 +1045,7 @@ $.ui.plugin.add( "resizable", "alsoResize", {
 		$( o.alsoResize ).each( function() {
 			var el = $( this );
 			el.data( "ui-resizable-alsoresize", {
-				width: parseFloat( el.css( "width" ) ), height: parseFloat( el.css( "height" ) ),
+				width: parseFloat( el.width() ), height: parseFloat( el.height() ),
 				left: parseFloat( el.css( "left" ) ), top: parseFloat( el.css( "top" ) )
 			} );
 		} );
@@ -1069,21 +1063,21 @@ $.ui.plugin.add( "resizable", "alsoResize", {
 				left: ( that.position.left - op.left ) || 0
 			};
 
-			$( o.alsoResize ).each( function() {
-				var el = $( this ), start = $( this ).data( "ui-resizable-alsoresize" ), style = {},
-					css = el.parents( ui.originalElement[ 0 ] ).length ?
-							[ "width", "height" ] :
-							[ "width", "height", "top", "left" ];
+		$( o.alsoResize ).each( function() {
+			var el = $( this ), start = $( this ).data( "ui-resizable-alsoresize" ), style = {},
+				css = el.parents( ui.originalElement[ 0 ] ).length ?
+					[ "width", "height" ] :
+					[ "width", "height", "top", "left" ];
 
-				$.each( css, function( i, prop ) {
-					var sum = ( start[ prop ] || 0 ) + ( delta[ prop ] || 0 );
-					if ( sum && sum >= 0 ) {
-						style[ prop ] = sum || null;
-					}
-				} );
-
-				el.css( style );
+			$.each( css, function( i, prop ) {
+				var sum = ( start[ prop ] || 0 ) + ( delta[ prop ] || 0 );
+				if ( sum && sum >= 0 ) {
+					style[ prop ] = sum || null;
+				}
 			} );
+
+			el.css( style );
+		} );
 	},
 
 	stop: function() {

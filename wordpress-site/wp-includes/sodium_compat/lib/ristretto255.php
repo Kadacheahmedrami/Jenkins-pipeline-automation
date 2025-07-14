@@ -47,12 +47,8 @@ if (!is_callable('sodium_crypto_core_ristretto255_add')) {
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_add(
-        #[\SensitiveParameter]
-        $p,
-        #[\SensitiveParameter]
-        $q
-    ) {
+    function sodium_crypto_core_ristretto255_add($p, $q)
+    {
         return ParagonIE_Sodium_Compat::ristretto255_add($p, $q, true);
     }
 }
@@ -60,30 +56,26 @@ if (!is_callable('sodium_crypto_core_ristretto255_from_hash')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_from_hash()
      *
-     * @param string $s
+     * @param string $r
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_from_hash(
-        #[\SensitiveParameter]
-        $s
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_from_hash($s, true);
+    function sodium_crypto_core_ristretto255_from_hash($r)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_from_hash($r, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_is_valid_point')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_is_valid_point()
      *
-     * @param string $s
+     * @param string $p
      * @return bool
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_is_valid_point(
-        #[\SensitiveParameter]
-        $s
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_is_valid_point($s, true);
+    function sodium_crypto_core_ristretto255_is_valid_point($p)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_is_valid_point($p, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_random')) {
@@ -102,33 +94,27 @@ if (!is_callable('sodium_crypto_core_ristretto255_scalar_add')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_scalar_add()
      *
-     * @param string $x
-     * @param string $y
+     * @param string $p
+     * @param string $q
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_add(
-        #[\SensitiveParameter]
-        $x,
-        #[\SensitiveParameter]
-        $y
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_scalar_add($x, $y, true);
+    function sodium_crypto_core_ristretto255_scalar_add($p, $q)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_scalar_add($p, $q, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_scalar_complement')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_scalar_complement()
      *
-     * @param string $s
+     * @param string $p
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_complement(
-        #[\SensitiveParameter]
-        $s
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_scalar_complement($s, true);
+    function sodium_crypto_core_ristretto255_scalar_complement($p)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_scalar_complement($p, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_scalar_invert')) {
@@ -139,10 +125,8 @@ if (!is_callable('sodium_crypto_core_ristretto255_scalar_invert')) {
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_invert(
-        #[\SensitiveParameter]
-        $p
-    ) {
+    function sodium_crypto_core_ristretto255_scalar_invert($p)
+    {
         return ParagonIE_Sodium_Compat::ristretto255_scalar_invert($p, true);
     }
 }
@@ -150,33 +134,27 @@ if (!is_callable('sodium_crypto_core_ristretto255_scalar_mul')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_scalar_mul()
      *
-     * @param string $x
-     * @param string $y
+     * @param string $p
+     * @param string $q
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_mul(
-        #[\SensitiveParameter]
-        $x,
-        #[\SensitiveParameter]
-        $y
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_scalar_mul($x, $y, true);
+    function sodium_crypto_core_ristretto255_scalar_mul($p, $q)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_scalar_mul($p, $q, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_scalar_negate')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_scalar_negate()
      *
-     * @param string $s
+     * @param string $p
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_negate(
-        #[\SensitiveParameter]
-        $s
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_scalar_negate($s, true);
+    function sodium_crypto_core_ristretto255_scalar_negate($p)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_scalar_negate($p, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_scalar_random')) {
@@ -195,33 +173,27 @@ if (!is_callable('sodium_crypto_core_ristretto255_scalar_reduce')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_scalar_reduce()
      *
-     * @param string $s
+     * @param string $p
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_reduce(
-        #[\SensitiveParameter]
-        $s
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_scalar_reduce($s, true);
+    function sodium_crypto_core_ristretto255_scalar_reduce($p)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_scalar_reduce($p, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_scalar_sub')) {
     /**
      * @see ParagonIE_Sodium_Compat::ristretto255_scalar_sub()
      *
-     * @param string $x
-     * @param string $y
+     * @param string $p
+     * @param string $q
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_scalar_sub(
-        #[\SensitiveParameter]
-        $x,
-        #[\SensitiveParameter]
-        $y
-    ) {
-        return ParagonIE_Sodium_Compat::ristretto255_scalar_sub($x, $y, true);
+    function sodium_crypto_core_ristretto255_scalar_sub($p, $q)
+    {
+        return ParagonIE_Sodium_Compat::ristretto255_scalar_sub($p, $q, true);
     }
 }
 if (!is_callable('sodium_crypto_core_ristretto255_sub')) {
@@ -233,12 +205,8 @@ if (!is_callable('sodium_crypto_core_ristretto255_sub')) {
      * @return string
      * @throws SodiumException
      */
-    function sodium_crypto_core_ristretto255_sub(
-        #[\SensitiveParameter]
-        $p,
-        #[\SensitiveParameter]
-        $q
-    ) {
+    function sodium_crypto_core_ristretto255_sub($p, $q)
+    {
         return ParagonIE_Sodium_Compat::ristretto255_sub($p, $q, true);
     }
 }
@@ -251,12 +219,8 @@ if (!is_callable('sodium_crypto_scalarmult_ristretto255')) {
      * @throws SodiumException
      * @throws TypeError
      */
-    function sodium_crypto_scalarmult_ristretto255(
-        #[\SensitiveParameter]
-        $n,
-        #[\SensitiveParameter]
-        $p
-    ) {
+    function sodium_crypto_scalarmult_ristretto255($n, $p)
+    {
         return ParagonIE_Sodium_Compat::scalarmult_ristretto255($n, $p, true);
     }
 }
@@ -268,10 +232,8 @@ if (!is_callable('sodium_crypto_scalarmult_ristretto255_base')) {
      * @throws SodiumException
      * @throws TypeError
      */
-    function sodium_crypto_scalarmult_ristretto255_base(
-        #[\SensitiveParameter]
-        $n
-    ) {
+    function sodium_crypto_scalarmult_ristretto255_base($n)
+    {
         return ParagonIE_Sodium_Compat::scalarmult_ristretto255_base($n, true);
     }
 }

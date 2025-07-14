@@ -2104,5 +2104,3 @@
 
   return Backbone;
 });
-
-# auto-update

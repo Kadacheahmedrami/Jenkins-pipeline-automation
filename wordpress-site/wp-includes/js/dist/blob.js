@@ -127,4 +127,3 @@ function isBlobURL(url) {
 (window.wp = window.wp || {}).blob = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

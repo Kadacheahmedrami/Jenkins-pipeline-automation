@@ -489,5 +489,3 @@
 	});
 
 })(jQuery);
-
-# auto-update

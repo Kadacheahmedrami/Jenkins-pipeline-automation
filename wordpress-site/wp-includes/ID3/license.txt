@@ -27,5 +27,3 @@ getID3 Commercial License: https://www.getid3.org/#gCL (payment required)
 
 Copies of each of the above licenses are included in the 'licenses'
 directory of the getID3 distribution.
-
-# auto-update

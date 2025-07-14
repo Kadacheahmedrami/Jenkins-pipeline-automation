@@ -13465,4 +13465,3 @@ const withBlockContentContext = (0,external_wp_compose_namespaceObject.createHig
 (window.wp = window.wp || {}).blocks = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

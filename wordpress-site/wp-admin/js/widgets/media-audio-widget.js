@@ -152,5 +152,3 @@
 	component.modelConstructors.media_audio = AudioWidgetModel;
 
 })( wp.mediaWidgets );
-
-# auto-update

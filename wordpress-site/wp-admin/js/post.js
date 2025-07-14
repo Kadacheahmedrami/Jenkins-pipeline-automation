@@ -1373,5 +1373,3 @@ jQuery( function($) {
 	} );
 
 } )( jQuery, new wp.utils.WordCounter() );
-
-# auto-update

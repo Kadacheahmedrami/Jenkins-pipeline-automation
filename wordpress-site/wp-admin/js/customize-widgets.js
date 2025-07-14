@@ -2370,5 +2370,3 @@
 	}
 
 })( window.wp, jQuery );
-
-# auto-update

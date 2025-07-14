@@ -3001,5 +3001,3 @@
 		);
 	} );
 })( jQuery, window.wp, window._wpUpdatesSettings );
-
-# auto-update

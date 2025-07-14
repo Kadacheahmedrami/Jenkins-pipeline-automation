@@ -626,4 +626,3 @@ Reference material:
 * http://www.codeproject.com/Articles/8295/MPEG-Audio-Frame-Header
 * http://dsd-guide.com/sites/default/files/white-papers/DSFFileFormatSpec_E.pdf
 * https://fileformats.fandom.com/wiki/Torrent_file
-# auto-update

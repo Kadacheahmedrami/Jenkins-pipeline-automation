@@ -1615,5 +1615,3 @@
 		};
 	} );
 } )( window, window.jQuery );
-
-# auto-update

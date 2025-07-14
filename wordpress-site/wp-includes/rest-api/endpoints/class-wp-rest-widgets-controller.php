@@ -133,14 +133,9 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 	 * @since 5.8.0
 	 *
 	 * @param WP_REST_Request $request Full details about the request.
-	 * @return WP_REST_Response Response object.
+	 * @return WP_REST_Response|WP_Error Response object on success, or WP_Error object on failure.
 	 */
 	public function get_items( $request ) {
-		if ( $request->is_method( 'HEAD' ) ) {
-			// Return early as this handler doesn't add any response headers.
-			return new WP_REST_Response( array() );
-		}
-
 		$this->retrieve_widgets();
 
 		$prepared          = array();
@@ -682,13 +677,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 			);
 		}
 
-		$widget = $wp_registered_widgets[ $widget_id ];
-		// Don't prepare the response body for HEAD requests.
-		if ( $request->is_method( 'HEAD' ) ) {
-			/** This filter is documented in wp-includes/rest-api/endpoints/class-wp-rest-widgets-controller.php */
-			return apply_filters( 'rest_prepare_widget', new WP_REST_Response( array() ), $widget, $request );
-		}
-
+		$widget    = $wp_registered_widgets[ $widget_id ];
 		$parsed_id = wp_parse_widget_id( $widget_id );
 		$fields    = $this->get_fields_for_response( $request );
 
@@ -726,7 +715,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 
 				if ( ! empty( $widget_object->widget_options['show_instance_in_rest'] ) ) {
 					// Use new stdClass so that JSON result is {} and not [].
-					$prepared['instance']['raw'] = empty( $instance ) ? new stdClass() : $instance;
+					$prepared['instance']['raw'] = empty( $instance ) ? new stdClass : $instance;
 				}
 			}
 		}
@@ -737,9 +726,7 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 
 		$response = rest_ensure_response( $prepared );
 
-		if ( rest_is_field_included( '_links', $fields ) || rest_is_field_included( '_embedded', $fields ) ) {
-			$response->add_links( $this->prepare_links( $prepared ) );
-		}
+		$response->add_links( $this->prepare_links( $prepared ) );
 
 		/**
 		 * Filters the REST API response for a widget.
@@ -872,9 +859,9 @@ class WP_REST_Widgets_Controller extends WP_REST_Controller {
 					'type'        => 'string',
 					'context'     => array(),
 					'arg_options' => array(
-						'sanitize_callback' => static function ( $form_data ) {
+						'sanitize_callback' => static function( $string ) {
 							$array = array();
-							wp_parse_str( $form_data, $array );
+							wp_parse_str( $string, $array );
 							return $array;
 						},
 					),

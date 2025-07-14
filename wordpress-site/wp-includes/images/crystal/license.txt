@@ -7,4 +7,3 @@ Released under LGPL
 Modified February 2008
 for WordPress
 https://wordpress.org
-# auto-update

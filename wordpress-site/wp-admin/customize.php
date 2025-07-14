@@ -76,38 +76,28 @@ if ( $wp_customize->changeset_post_id() ) {
 
 	if ( in_array( get_post_status( $changeset_post->ID ), array( 'publish', 'trash' ), true ) ) {
 		wp_die(
-			'<h1>' . __( 'An error occurred while saving your changeset.' ) . '</h1>' .
-			'<p>' . __( 'Please try again or start a new changeset. This changeset cannot be further modified.' ) . '</p>' .
+			'<h1>' . __( 'Something went wrong.' ) . '</h1>' .
+			'<p>' . __( 'This changeset cannot be further modified.' ) . '</p>' .
 			'<p><a href="' . esc_url( remove_query_arg( 'changeset_uuid' ) ) . '">' . __( 'Customize New Changes' ) . '</a></p>',
 			403
 		);
 	}
 }
 
-$url       = ! empty( $_REQUEST['url'] ) ? esc_url_raw( wp_unslash( $_REQUEST['url'] ) ) : '';
-$return    = ! empty( $_REQUEST['return'] ) ? esc_url_raw( wp_unslash( $_REQUEST['return'] ) ) : '';
-$autofocus = ! empty( $_REQUEST['autofocus'] ) && is_array( $_REQUEST['autofocus'] )
-	? array_map( 'sanitize_text_field', wp_unslash( $_REQUEST['autofocus'] ) )
-	: array();
 
+wp_reset_vars( array( 'url', 'return', 'autofocus' ) );
 if ( ! empty( $url ) ) {
-	$wp_customize->set_preview_url( $url );
+	$wp_customize->set_preview_url( wp_unslash( $url ) );
 }
 if ( ! empty( $return ) ) {
-	$wp_customize->set_return_url( $return );
+	$wp_customize->set_return_url( wp_unslash( $return ) );
 }
-if ( ! empty( $autofocus ) ) {
-	$wp_customize->set_autofocus( $autofocus );
+if ( ! empty( $autofocus ) && is_array( $autofocus ) ) {
+	$wp_customize->set_autofocus( wp_unslash( $autofocus ) );
 }
-
-// Let's roll.
-header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
-
-wp_user_settings();
-_wp_admin_html_begin();
 
 $registered             = $wp_scripts->registered;
-$wp_scripts             = new WP_Scripts();
+$wp_scripts             = new WP_Scripts;
 $wp_scripts->registered = $registered;
 
 add_action( 'customize_controls_print_scripts', 'print_head_scripts', 20 );
@@ -126,11 +116,17 @@ wp_enqueue_script( 'customize-controls' );
 wp_enqueue_style( 'customize-controls' );
 
 /**
- * Fires when enqueuing Customizer control scripts.
+ * Enqueue Customizer control scripts.
  *
  * @since 3.4.0
  */
 do_action( 'customize_controls_enqueue_scripts' );
+
+// Let's roll.
+header( 'Content-Type: ' . get_option( 'html_type' ) . '; charset=' . get_option( 'blog_charset' ) );
+
+wp_user_settings();
+_wp_admin_html_begin();
 
 $body_class = 'wp-core-ui wp-customizer js';
 
@@ -211,12 +207,7 @@ do_action( 'customize_controls_head' );
 				<span class="preview"><?php _e( 'Preview' ); ?></span>
 			</button>
 			<a class="customize-controls-close" href="<?php echo esc_url( $wp_customize->get_return_url() ); ?>">
-				<span class="screen-reader-text">
-					<?php
-					/* translators: Hidden accessibility text. */
-					_e( 'Close the Customizer and go back to the previous page' );
-					?>
-				</span>
+				<span class="screen-reader-text"><?php _e( 'Close the Customizer and go back to the previous page' ); ?></span>
 			</a>
 		</div>
 
@@ -233,18 +224,13 @@ do_action( 'customize_controls_head' );
 			<div class="wp-full-overlay-sidebar-content" tabindex="-1">
 				<div id="customize-info" class="accordion-section customize-info" data-block-theme="<?php echo (int) wp_is_block_theme(); ?>">
 					<div class="accordion-section-title">
-						<h2 class="preview-notice">
+						<span class="preview-notice">
 						<?php
 							/* translators: %s: The site/panel title in the Customizer. */
 							printf( __( 'You are customizing %s' ), '<strong class="panel-title site-title">' . get_bloginfo( 'name', 'display' ) . '</strong>' );
 						?>
-						</h2>
-						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text">
-							<?php
-							/* translators: Hidden accessibility text. */
-							_e( 'Help' );
-							?>
-						</span></button>
+						</span>
+						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
 					</div>
 					<div class="customize-panel-description">
 						<p>
@@ -254,7 +240,7 @@ do_action( 'customize_controls_head' );
 						</p>
 						<p>
 							<?php
-							_e( '<a href="https://wordpress.org/documentation/article/customizer/">Documentation on Customizer</a>' );
+							_e( '<a href="https://wordpress.org/support/article/appearance-customize-screen/">Documentation on Customizer</a>' );
 							?>
 						</p>
 					</div>

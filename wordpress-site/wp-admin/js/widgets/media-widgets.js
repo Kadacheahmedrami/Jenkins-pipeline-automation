@@ -1334,5 +1334,3 @@ wp.mediaWidgets = ( function( $ ) {
 
 	return component;
 })( jQuery );
-
-# auto-update

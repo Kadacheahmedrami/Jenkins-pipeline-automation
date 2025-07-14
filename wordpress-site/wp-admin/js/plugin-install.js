@@ -227,5 +227,3 @@ jQuery( function( $ ) {
 			});
 	}
 });
-
-# auto-update

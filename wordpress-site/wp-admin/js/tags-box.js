@@ -438,5 +438,3 @@
 		}
 	};
 }( jQuery ));
-
-# auto-update

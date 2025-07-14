@@ -405,4 +405,3 @@ function addBlockFromStack(endOffset) {
 (window.wp = window.wp || {}).blockSerializationDefaultParser = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

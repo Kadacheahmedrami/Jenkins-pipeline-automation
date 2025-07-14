@@ -901,5 +901,3 @@ window.autosave = function() {
 	window.wp.autosave = autosave();
 
 }( jQuery, window ));
-
-# auto-update

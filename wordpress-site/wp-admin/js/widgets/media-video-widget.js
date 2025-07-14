@@ -254,5 +254,3 @@
 	component.modelConstructors.media_video = VideoWidgetModel;
 
 })( wp.mediaWidgets );
-
-# auto-update

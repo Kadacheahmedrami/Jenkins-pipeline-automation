@@ -1759,4 +1759,3 @@ setupWPTimezone();
 (window.wp = window.wp || {}).date = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

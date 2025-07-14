@@ -548,5 +548,3 @@ wp.textWidgets = ( function( $ ) {
 
 	return component;
 })( jQuery );
-
-# auto-update

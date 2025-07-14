@@ -1795,4 +1795,3 @@ const ModifiedWarning = _ref2 => {
 (window.wp = window.wp || {}).blockDirectory = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

@@ -450,5 +450,3 @@ jQuery( function( $ ) {
 		$( this ).toggleClass( 'visible' );
 	} );
 } );
-
-# auto-update

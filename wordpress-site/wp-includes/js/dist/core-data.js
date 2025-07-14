@@ -6403,4 +6403,3 @@ const store = (0,external_wp_data_namespaceObject.createReduxStore)(STORE_NAME, 
 (window.wp = window.wp || {}).coreData = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

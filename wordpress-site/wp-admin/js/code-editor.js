@@ -344,5 +344,3 @@ if ( 'undefined' === typeof window.wp.codeEditor ) {
 	};
 
 })( window.jQuery, window.wp );
-
-# auto-update

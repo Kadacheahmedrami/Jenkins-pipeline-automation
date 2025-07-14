@@ -207,5 +207,3 @@
 	};
 
 }( jQuery ) );
-
-# auto-update

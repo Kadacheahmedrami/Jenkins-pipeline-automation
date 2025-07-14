@@ -4617,4 +4617,3 @@ const register = default_registry.register;
 (window.wp = window.wp || {}).data = __webpack_exports__;
 /******/ })()
 ;
-# auto-update

@@ -1558,5 +1558,3 @@
 	});
 
 })(jQuery);
-
-# auto-update

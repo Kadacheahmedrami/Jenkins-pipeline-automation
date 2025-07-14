@@ -119,8 +119,6 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 		// Restores the more descriptive, specific name for use within this method.
 		$plugin = $item;
 
-		$fields = $this->get_fields_for_response( $request );
-
 		// There might be multiple blocks in a plugin. Only the first block is mapped.
 		$block_data = reset( $plugin['blocks'] );
 
@@ -148,10 +146,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 		$this->add_additional_fields_to_object( $block, $request );
 
 		$response = new WP_REST_Response( $block );
-
-		if ( rest_is_field_included( '_links', $fields ) || rest_is_field_included( '_embedded', $fields ) ) {
-			$response->add_links( $this->prepare_links( $plugin ) );
-		}
+		$response->add_links( $this->prepare_links( $plugin ) );
 
 		return $response;
 	}
@@ -285,7 +280,7 @@ class WP_REST_Block_Directory_Controller extends WP_REST_Controller {
 					'context'     => array( 'view' ),
 				),
 				'humanized_updated'   => array(
-					'description' => __( 'The date when the block was last updated, in human readable format.' ),
+					'description' => __( 'The date when the block was last updated, in fuzzy human readable format.' ),
 					'type'        => 'string',
 					'context'     => array( 'view' ),
 				),
