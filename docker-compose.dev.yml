@@ -27,7 +27,6 @@ services:
     networks:
       - webnet
 
-
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin_ui
@@ -36,8 +35,6 @@ services:
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: bu1_root_secret
-    ports:
-      - "8082:80"
     depends_on:
       - db
     networks:
@@ -70,7 +67,7 @@ services:
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
-      - "/c/Users/hp omen/Desktop/stage/wordpress-docker:/app"
+      - ./wordpress-docker:/app
     networks:
       - webnet
 
