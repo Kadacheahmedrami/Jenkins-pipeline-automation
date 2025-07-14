@@ -37,13 +37,11 @@ services:
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: bu1_root_secret
-    ports:
-      - "8082:80"
     depends_on:
       - db
     networks:
       - webnet
-
+      
   nginx:
     image: nginx:latest
     container_name: nginx_gateway

@@ -31,13 +31,12 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_ui
     restart: always
     environment:
       PMA_HOST: db
       PMA_USER: root
       PMA_PASSWORD: bu1_root_secret
-    ports:
-      - "8082:80"
     depends_on:
       - db
     networks:
