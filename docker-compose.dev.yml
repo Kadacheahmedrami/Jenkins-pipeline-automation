@@ -27,6 +27,7 @@ services:
     networks:
       - webnet
 
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin_ui
