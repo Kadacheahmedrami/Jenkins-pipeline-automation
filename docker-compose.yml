@@ -55,8 +55,6 @@ services:
     depends_on:
       - wordpress
       - phpmyadmin
-    volumes:
-    - ./nginx/default.conf:/etc/nginx/conf.d/default.conf  # ✅ Mount as FILE
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost"]
       interval: 30s
