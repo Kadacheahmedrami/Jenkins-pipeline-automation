@@ -55,6 +55,8 @@ services:
     depends_on:
       - wordpress
       - phpmyadmin
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost"]
       interval: 30s
