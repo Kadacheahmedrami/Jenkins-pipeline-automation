@@ -47,7 +47,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx/conf.d/default.conf
+      - ./nginx/default.conf
     depends_on:
       - wordpress
       - phpmyadmin
