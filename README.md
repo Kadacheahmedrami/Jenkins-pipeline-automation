@@ -4,16 +4,24 @@
 
 ```mermaid
 flowchart LR
-    A[🔧 Code Push] --> B[📂 GitHub]
-    B --> C[🌐 Cloudflared]
-    C --> D[⚙️ Jenkins]
-    D --> E[🐳 Docker Build]
-    E --> F[🚀 Deploy]
+    A[🔧 Local Testing] --> B[📂 GitHub Push]
+    B --> D[⚙️ Jenkins]
     
-    F --> G[📦 MySQL DB]
-    F --> H[🌐 WordPress]
-    F --> I[🔧 phpMyAdmin]
-    F --> J[🛡️ Nginx Proxy]
+    subgraph "Google Cloud VPS"
+        D
+        E[🐳 Docker Build]
+        F[🚀 Deploy]
+        G[📦 MySQL DB]
+        H[🌐 WordPress]
+        I[🔧 phpMyAdmin]
+        J[🛡️ Nginx Proxy]
+    end
+    D --> E
+    E --> F
+    F --> G
+    F --> H
+    F --> I
+    F --> J
     
     subgraph "Security Features"
         K[🚦 Rate Limiting]
@@ -29,7 +37,7 @@ flowchart LR
     
     style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
     style B fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#45b7d1,stroke:#333,stroke-width:2px,color:#fff
+
     style D fill:#96ceb4,stroke:#333,stroke-width:2px,color:#fff
     style E fill:#feca57,stroke:#333,stroke-width:2px,color:#fff
     style F fill:#ff9ff3,stroke:#333,stroke-width:2px,color:#fff
@@ -46,25 +54,7 @@ flowchart LR
 
 # DevOps Infrastructure Documentation
 
-## Performance Metrics
 
-### CPU Usage Over Time
-```mermaid
-xychart-beta
-    title "CPU Usage Over Time"
-    x-axis [0h, 6h, 12h, 18h, 24h]
-    y-axis "CPU Usage %" 0 --> 100
-    line [20, 60, 60, 80, 100]
-```
-
-### Memory Usage Over Time
-```mermaid
-xychart-beta
-    title "Memory Usage Over Time"
-    x-axis [0h, 6h, 12h, 18h, 24h]
-    y-axis "Memory Usage %" 0 --> 100
-    line [20, 60, 60, 40, 60]
-```
 
 ## Docker Architecture
 
@@ -116,25 +106,7 @@ graph TD
     style H fill:#fff3e0
 ```
 
-## Database Performance Comparison
 
-### Before Optimization
-```mermaid
-xychart-beta
-    title "Query Performance (Before Optimization)"
-    x-axis [SELECT, INSERT, UPDATE]
-    y-axis "Response Time (ms)" 0 --> 500
-    bar [500, 300, 100]
-```
-
-### After Optimization
-```mermaid
-xychart-beta
-    title "Query Performance (After Optimization)"
-    x-axis [SELECT, INSERT, UPDATE]
-    y-axis "Response Time (ms)" 0 --> 500
-    bar [100, 50, 50]
-```
 
 ## Project Timeline (Gantt Chart)
 
@@ -187,35 +159,7 @@ quadrantChart
     Data Loss: [0.9, 0.9]
 ```
 
-## Security Architecture
 
-```mermaid
-graph TD
-    A[Network Security Layer] --> B[Application Security Layer]
-    B --> C[Container Security Layer]
-    C --> D[Data Security Layer]
-    
-    A1[Firewall Rules] --> A
-    A2[Rate Limiting] --> A
-    A3[DDoS Protection] --> A
-    
-    B1[Input Validation] --> B
-    B2[SQL Injection Protection] --> B
-    B3[XSS Protection] --> B
-    
-    C1[Image Scanning] --> C
-    C2[Runtime Security] --> C
-    C3[Secrets Management] --> C
-    
-    D1[Encryption at Rest] --> D
-    D2[Backup Strategy] --> D
-    D3[Access Control] --> D
-    
-    style A fill:#ffebee
-    style B fill:#e8f5e8
-    style C fill:#e3f2fd
-    style D fill:#fff3e0
-```
 
 ## Container Orchestration Flow
 
@@ -239,32 +183,7 @@ graph TD
     style F fill:#f1f8e9
 ```
 
-## Monitoring Dashboard Layout
 
-```mermaid
-graph TD
-    A[Monitoring Dashboard] --> B[System Health: 🟢 UP]
-    A --> C[Container Status: 3/3 UP]
-    A --> D[Network Traffic: High]
-    A --> E[Response Time: 45ms]
-    A --> F[Database Queries: 125 QPS]
-    A --> G[Security Alerts: 0 🔴]
-    A --> H[Real-time Logs]
-    
-    H --> I[INFO: Container nginx_1 started]
-    H --> J[INFO: Health check passed for wordpress_1]
-    H --> K[WARN: High CPU usage detected]
-    H --> L[INFO: Database connection established]
-    
-    style A fill:#e1f5fe
-    style B fill:#e8f5e8
-    style C fill:#e8f5e8
-    style D fill:#fff3e0
-    style E fill:#e8f5e8
-    style F fill:#e8f5e8
-    style G fill:#ffebee
-    style H fill:#f5f5f5
-```
 
 ## System Architecture Overview
 
@@ -321,42 +240,3 @@ graph TB
     style LOG fill:#f1f8e9
 ```
 
-## Features
-
-- **High Availability**: Load-balanced WordPress instances with automatic failover
-- **Performance Monitoring**: Real-time metrics for CPU, memory, and database performance
-- **Security**: Multi-layered security architecture with DDoS protection and input validation
-- **Scalability**: Container-based architecture with auto-scaling capabilities
-- **Monitoring**: Comprehensive dashboard with health checks and log aggregation
-- **Backup**: Automated backup strategy with encryption at rest
-
-## Getting Started
-
-1. **Prerequisites**: Docker, Docker Compose, and basic knowledge of containerization
-2. **Setup**: Clone repository and run `docker-compose up -d`
-3. **Monitoring**: Access monitoring dashboard at `http://localhost:3000`
-4. **Management**: Use phpMyAdmin for database management (local access only)
-
-## Performance Improvements
-
-The optimization efforts resulted in significant performance improvements:
-- **SELECT queries**: 80% reduction in response time (500ms → 100ms)
-- **INSERT queries**: 83% reduction in response time (300ms → 50ms)
-- **UPDATE queries**: 50% reduction in response time (100ms → 50ms)
-
-## Security Considerations
-
-- Network-level protection with firewall rules and rate limiting
-- Application-level security with input validation and XSS protection
-- Container security with image scanning and runtime monitoring
-- Data protection with encryption and access controls
-
-## Risk Management
-
-The project follows a comprehensive risk assessment approach:
-- **Critical Risks**: Security vulnerabilities and data loss prevention
-- **High Risks**: Performance issues and compatibility concerns
-- **Medium Risks**: Knowledge transfer and team training
-- **Low Risks**: Minor bugs and cosmetic issues
-
-# auto-update
