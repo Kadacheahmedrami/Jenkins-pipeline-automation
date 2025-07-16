@@ -4,16 +4,24 @@
 
 ```mermaid
 flowchart LR
-    A[🔧 Code Push] --> B[📂 GitHub]
-    B --> C[🌐 Cloudflared]
-    C --> D[⚙️ Jenkins]
-    D --> E[🐳 Docker Build]
-    E --> F[🚀 Deploy]
+    A[🔧 Local Testing] --> B[📂 GitHub Push]
+    B --> D[⚙️ Jenkins]
     
-    F --> G[📦 MySQL DB]
-    F --> H[🌐 WordPress]
-    F --> I[🔧 phpMyAdmin]
-    F --> J[🛡️ Nginx Proxy]
+    subgraph "Google Cloud VPS"
+        D
+        E[🐳 Docker Build]
+        F[🚀 Deploy]
+        G[📦 MySQL DB]
+        H[🌐 WordPress]
+        I[🔧 phpMyAdmin]
+        J[🛡️ Nginx Proxy]
+    end
+    D --> E
+    E --> F
+    F --> G
+    F --> H
+    F --> I
+    F --> J
     
     subgraph "Security Features"
         K[🚦 Rate Limiting]
@@ -29,7 +37,7 @@ flowchart LR
     
     style A fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
     style B fill:#4ecdc4,stroke:#333,stroke-width:2px,color:#fff
-    style C fill:#45b7d1,stroke:#333,stroke-width:2px,color:#fff
+
     style D fill:#96ceb4,stroke:#333,stroke-width:2px,color:#fff
     style E fill:#feca57,stroke:#333,stroke-width:2px,color:#fff
     style F fill:#ff9ff3,stroke:#333,stroke-width:2px,color:#fff
